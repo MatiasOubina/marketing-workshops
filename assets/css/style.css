@@ -5524,7 +5524,7 @@ transition:0.3s;
   transform: rotate(180deg);
 }
 .address_area > .container { position: relative; z-index: 2; }
-.address_area .title-contact { color: var(--mw-navy); }
+.address_area .title-contact { color: #fff; }
 .single_address {
   background: #fff;
   border-radius: 22px;
