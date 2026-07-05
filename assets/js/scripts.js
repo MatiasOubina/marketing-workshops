@@ -28,6 +28,28 @@ Version      : 1.0
 				}
 			});	
 		/*END MENU JS*/
+
+		/* Cerrar menú mobile al hacer clic en un link y navegar a la sección */
+		$(document).on('click', '.sm_menu_outer a[href^="#"]', function(e) {
+			var target = $(this).attr('href');
+			if (target && target !== '#') {
+				e.preventDefault();
+				// Cerrar el menú si está abierto
+				var $ham = $('#sm_menu_ham');
+				if ($ham.hasClass('open') || $('.sm_menu_outer').hasClass('active')) {
+					$ham.trigger('click');
+				}
+				// Scroll a la sección con delay para que el menú cierre primero
+				setTimeout(function() {
+					var $section = $(target);
+					if ($section.length) {
+						$('html, body').animate({
+							scrollTop: $section.offset().top - 70
+						}, 400);
+					}
+				}, 350);
+			}
+		});
 		
 		/*START VIDEO JS*/
 		$('.video-play').magnificPopup({
