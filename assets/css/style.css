@@ -5713,3 +5713,100 @@ a:hover { color: var(--mw-pink); }
   flex: 1;
 }
 .footer .single_footer ul li a { text-transform: none; }
+
+/* ============================================================
+   MOBILE RESPONSIVE OVERRIDES (max-width: 767px)
+   ============================================================ */
+@media (max-width: 767px) {
+
+  /* --- Barra superior: ocultar en mobile --- */
+  .logo-contact { display: none; }
+
+  /* --- Hero --- */
+  .home_bg { padding: 40px 0 20px; }
+  .home_content h1 { font-size: 26px; line-height: 1.35; text-align: center; }
+  .home_content p { font-size: 15px; text-align: center; }
+  .home_btn { text-align: center; margin-top: 20px; }
+  .home_me_img { margin-top: 30px; text-align: center; }
+  .home_ps, .home_ps2 { display: none; }
+
+  /* --- About (Sobre nosotros) --- */
+  .ab_one { padding: 40px 0; }
+  .ab_img { margin-bottom: 30px; }
+  .ab_content h2 { font-size: 24px; text-align: center; }
+  .ab_content p { text-align: center; }
+  .abmv { margin-bottom: 16px; }
+
+  /* --- Taller ideal: cards en columna --- */
+  #taller-ideal { padding: 40px 0; }
+  #taller-ideal .row { flex-direction: column; row-gap: 20px; }
+  #taller-ideal .col-lg-4 { width: 100%; flex: 0 0 100%; max-width: 100%; }
+  #taller-ideal .section-title h1 { font-size: 22px; }
+
+  /* --- Talleres (cards de colores) --- */
+  .topic_content_p2 { padding: 40px 0; }
+  .single_tca { margin-bottom: 20px; padding: 30px 20px; }
+  .single_tca h2 a { font-size: 18px; }
+  .coming-soon-badge { font-size: 10px; padding: 5px 12px; }
+
+  /* --- Sección contacto --- */
+  .address_area { padding: 40px 0; }
+  .single_address { margin-bottom: 20px; padding: 30px 16px; }
+  .title-contact { font-size: 28px !important; }
+
+  /* --- Formulario de contacto --- */
+  .contact_area { padding: 40px 0; }
+
+  /* --- Footer --- */
+  .footer { padding: 40px 0 20px; }
+  .single_footer { margin-bottom: 30px; text-align: center; }
+  .single_footer ul { text-align: left; display: inline-block; }
+  .foot_social { margin-top: 20px; text-align: center; }
+  .foot_social ul { justify-content: center; }
+  .footer_copyright p { text-align: center; font-size: 13px; }
+  .footer_menu { float: none; text-align: center; margin-top: 10px; }
+
+  /* --- Botón CTA navbar: ocultar en mobile (ya hay hamburger) --- */
+  .call_to_action { display: none; }
+
+  /* --- Texto general --- */
+  .section-title h1 { font-size: 24px; }
+  .section-title h4 { font-size: 13px; }
+  .section-padding { padding: 40px 0; }
+
+  /* --- Overflow horizontal --- */
+  body { overflow-x: hidden; }
+  .container { padding-left: 20px; padding-right: 20px; }
+}
+/* --- Mobile fine-tuning --- */
+@media (max-width: 767px) {
+
+  /* Copyright sin corte */
+  .footer_copyright p { font-size: 12px; }
+  .footer_menu ul { flex-wrap: wrap; justify-content: center; gap: 8px; }
+
+  /* Cards contactanos: quitar min-height extra */
+  .single_address { min-height: auto; }
+
+  /* Taller ideal: texto alineado izquierda en mobile */
+  #taller-ideal .single_feature_one { text-align: left; }
+  #taller-ideal .sf_top { display: flex; flex-direction: column; align-items: center; gap: 12px; margin-bottom: 16px; }
+  #taller-ideal .sf_top img { width: 48px; height: 48px; margin-bottom: 0; flex-shrink: 0; }
+  #taller-ideal .single_feature_one p { margin-bottom: 0; font-size: 14px; }
+
+  /* Sección taller-ideal: título centrado */
+  #taller-ideal .section-title { text-align: center; }
+
+  /* Imagen hero: ancho completo */
+  .home_me_img img { max-width: 100%; height: auto; }
+
+  /* Carrusel sobre nosotros: no recortar */
+  .ab_img .carousel-item img { border-radius: 16px; }
+}
+@media (max-width: 767px) {
+  /* Footer bottom links: columna centrada */
+  .fc .col-lg-6 { text-align: center !important; }
+  .footer_menu { float: none !important; display: block; text-align: center; margin-top: 10px; }
+  .footer_menu ul { display: flex; flex-wrap: wrap; justify-content: center; gap: 6px 16px; padding: 0; list-style: none; }
+  .footer_copyright p { font-size: 12px; }
+}
