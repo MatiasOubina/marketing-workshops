@@ -5888,3 +5888,24 @@ a:hover { color: var(--mw-pink); }
 @media (max-width: 767px) {
   .bio-card { padding: 30px 24px; }
 }
+
+/* ---- Botones "Quiero asesoría personalizada" / "¡Coordinemos una videollamada!" en mobile ---- */
+@media (max-width: 767px) {
+  .single_ins_content2 .cta {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    padding: 14px 18px;
+    text-align: center;
+    white-space: normal;
+  }
+  .single_ins_content2 .cta span {
+    font-size: 13px;
+    white-space: normal;
+    line-height: 1.3;
+  }
+  .single_ins_content2 .cta svg {
+    flex-shrink: 0;
+  }
+}
