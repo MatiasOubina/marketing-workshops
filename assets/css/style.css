@@ -763,9 +763,9 @@ position:relative;
 .home_content{padding-left:30px;padding-right: 20px;}
 }
 .home_content h1 {
-	font-size: 55px;
+	font-size: 50px;
 	font-weight: 500;
-	line-height: 70px;
+	line-height: 64px;
 	margin-bottom: 20px;
 }
  @media only screen and (max-width:960px){
