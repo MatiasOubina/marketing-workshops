@@ -462,13 +462,13 @@ color:#fff;
 * ----------------------------------------------------------------------------------------
 */
 .col-20{
-	width: 15%;
+	width: 13%;
 }
 .col-60{
-	width: 55%;
+	width: 64%;
 }
 .col-30{
-	width: 30%;
+	width: 23%;
 }
 .site-logo{
 	width: 150px;
@@ -519,12 +519,17 @@ color:#fff;
 
 #main-menu ul li {
 	display: inline-block;
-	padding: 0 9px;
+	padding: 0 6px;
 	position: relative;
 	line-height: 60px;
 }
 @media only screen and (max-width:1140px){
-#main-menu ul li {padding: 0 9px;}
+#main-menu ul li {padding: 0 5px;}
+}
+#main-menu > ul {
+	display: flex;
+	flex-wrap: nowrap;
+	white-space: nowrap;
 }
 #main-menu ul li a {
 	position: relative;
@@ -550,11 +555,11 @@ color:#fff;
 --------------------------------*/
 
 #navigation #main-menu ul li ul ,
-#navigation #main-menu ul li ul li ul {	
+#navigation #main-menu ul li ul li ul {
 	background: #fff;
 	-webkit-box-shadow: 0 0 10px 3px rgba(0,0,0,.05);
 	box-shadow: 0 0 10px 3px rgba(0,0,0,.05);
-	left: -55px;
+	left: 0;
 	list-style: outside none none;
 	margin:  0;
 	opacity: 0;
@@ -567,14 +572,15 @@ color:#fff;
 	-o-transition: all 0.5s ease 0s;
 	transition: all 0.5s ease 0s;
 	visibility: hidden;
-	width: 210px;
+	width: 270px;
 	z-index: 999;
-	border-radius: 0px;
+	border-radius: 8px;
+	overflow: hidden;
 	border-top: 2px solid #ff6699;
 }
 #navigation #main-menu .menu-item-has-children {
 	position: relative;
-	margin-right: 20px;
+	margin-right: 12px;
 }
 #navigation #main-menu .menu-item-has-children::after {
 	position: absolute;
@@ -595,7 +601,7 @@ color:#fff;
 #navigation #main-menu ul li ul li ul{
 	top: 0;
 	right: auto;
-	left: 205px;
+	left: 265px;
 }
 #navigation.navbar-fixed #main-menu ul li li a{
 	color: #444444;
@@ -611,15 +617,19 @@ color:#fff;
 
 #navigation #main-menu ul li ul li a {
 	display: block;
-	font-size: 16px;
-	line-height: 30px;
+	font-size: 15px;
+	line-height: 1.4;
 	font-weight: 600;
-	padding: 10px 30px;
-	position: relative;	
+	padding: 12px 20px;
+	position: relative;
 	transition: all 0.3s ease 0s !important;
 	visibility: inherit !important;
 	opacity: inherit !important;
 	border-bottom: 1px solid #e8e5e5;
+	white-space: normal;
+}
+#navigation #main-menu ul li ul li:last-child a {
+	border-bottom: none;
 }
 
 #navigation #main-menu ul li ul li a:hover{
@@ -5283,11 +5293,13 @@ transition:0.3s;
 .top_f_instagram { background: rgba(255, 255, 255, 0.3) !important; }
 .top_f_linkedin  { background: rgba(255, 255, 255, 0.3) !important; }
 .top_f_x        { background: rgba(255, 255, 255, 0.3) !important; }
+.top_f_blog     { background: rgba(255, 255, 255, 0.3) !important; }
 .top_f_facebook:hover  { background: rgba(255, 255, 255, 0.5) !important; }
 .top_f_twitter:hover   { background: rgba(255, 255, 255, 0.5) !important; }
 .top_f_instagram:hover { background: rgba(255, 255, 255, 0.5) !important; }
 .top_f_linkedin:hover  { background: rgba(255, 255, 255, 0.5) !important; }
 .top_f_x:hover  { background: rgba(255, 255, 255, 0.5) !important; }
+.top_f_blog:hover  { background: rgba(255, 255, 255, 0.5) !important; }
 .top_social_profile ul li a i,
 .foot_social ul li a i { font-size: 16px; }
 
@@ -5365,6 +5377,8 @@ transition:0.3s;
 .site-navigation {
   background: #fff;
   box-shadow: 0 4px 16px rgba(51,102,153,.06);
+  position: relative;
+  z-index: 500;
 }
 #main-menu ul li a { color: var(--mw-navy); font-weight: 700; }
 #main-menu ul li a:hover { color: var(--mw-pink); }
@@ -5376,7 +5390,8 @@ transition:0.3s;
 #main-menu > ul > li:nth-child(2) > a { color: #9169A9; }
 #main-menu > ul > li:nth-child(3) > a { color: #6CC0A9; }
 #main-menu > ul > li:nth-child(4) > a { color: #68BFEC; }
-#main-menu > ul > li:nth-child(5) > a { color: #3F5BA4; }
+#main-menu > ul > li:nth-child(5) > a { color: #ff9900; }
+#main-menu > ul > li:nth-child(6) > a { color: #3F5BA4; }
 
 /* ---- About section ------------------------------------------------------- */
 .ab_one {
@@ -5588,6 +5603,7 @@ transition:0.3s;
 .single_address .social-icon-link:nth-child(2) { background: #66cc99; }
 .single_address .social-icon-link:nth-child(3) { background: #66cc99; }
 .single_address .social-icon-link:nth-child(4) { background: #66cc99; }
+.single_address .social-icon-link:nth-child(5) { background: #66cc99; }
 .single_address .social-icon-link i {
   font-size: 14px;
   margin: 0;
@@ -5635,7 +5651,7 @@ transition:0.3s;
 
 /* ---- Footer -------------------------------------------------------------- */
 .footer {
-  background: #444444;
+  background: #000000;
   color: #d6e4f1;
   padding-top: 80px;
 }
@@ -5644,7 +5660,7 @@ transition:0.3s;
 .footer .single_footer p { color: #c8d8e9; }
 .footer .single_footer ul li a { color: #c8d8e9; }
 .footer .single_footer ul li a:hover { color: var(--mw-yellow); }
-.footer .single_footer ul li a:before { color: var(--mw-pink); }
+.footer .single_footer ul li a:before { color: var(--mw-sky); }
 .footer .sf_contact span { color: var(--mw-yellow); }
 .footer .foot_social ul li a {
   background: rgba(255,255,255,.1) !important;
@@ -5809,4 +5825,66 @@ a:hover { color: var(--mw-pink); }
   .footer_menu { float: none !important; display: block; text-align: center; margin-top: 10px; }
   .footer_menu ul { display: flex; flex-wrap: wrap; justify-content: center; gap: 6px 16px; padding: 0; list-style: none; }
   .footer_copyright p { font-size: 12px; }
+}
+/* ---- PyME banner (Talleres section) --------------------------------------- */
+.pyme-banner {
+  background: #ff9900;
+  border-radius: 12px;
+  padding: 18px 28px;
+  margin-top: 30px;
+  text-align: center;
+}
+.pyme-banner p {
+  color: #fff;
+  font-weight: 700;
+  font-size: 16px;
+  margin: 0;
+}
+@media (max-width: 767px) {
+  .pyme-banner { padding: 16px 20px; margin-top: 20px; }
+  .pyme-banner p { font-size: 14px; }
+}
+
+/* ---- Main menu: evitar que 6 items se corten a dos líneas ---- */
+@media only screen and (min-width: 992px) and (max-width: 1300px) {
+  #main-menu ul li a { font-size: 14px; }
+  #main-menu ul li { padding: 0 4px; }
+  #navigation #main-menu .menu-item-has-children { margin-right: 8px; }
+}
+
+/* ---- Asesoramiento / PyMEs cards: mismo alto ---- */
+.single_ins2 {
+  display: flex;
+  align-items: center;
+  height: 100%;
+}
+.single_ins_content2 {
+  width: 100%;
+}
+
+/* ---- Sobre mí (bio card) --------------------------------------------------- */
+.bio-card {
+  background: #fff;
+  border-radius: 20px;
+  box-shadow: 0 8px 30px rgba(51,102,153,.10);
+  padding: 50px 60px;
+}
+.bio-card-eyebrow {
+  color: var(--mw-pink);
+  text-transform: uppercase;
+  letter-spacing: 1.5px;
+  font-size: 14px;
+  font-weight: 700;
+  margin-bottom: 18px;
+}
+.bio-card p {
+  color: #555;
+  line-height: 1.8;
+  margin-bottom: 18px;
+}
+.bio-card p:last-child {
+  margin-bottom: 0;
+}
+@media (max-width: 767px) {
+  .bio-card { padding: 30px 24px; }
 }
