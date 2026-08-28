@@ -388,7 +388,7 @@ p.section-title-white{color:#fff;}
 /*START TOP HEADER DESIGN*/
 .logo-contact {
 	padding: 5px 0;
-	background: #996699;
+	background: #000000;
 }
 @media only screen and (max-width:960px){
 .logo-contact{display:none;}
@@ -5221,15 +5221,17 @@ transition:0.3s;
 }
 .logo-contact {
   padding: 14px 0;
-  background: #996699;
-  border-bottom: 1px solid rgba(51, 102, 153, 0.08);
+  background: #000000;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
 }
 .logo-contact .single-top-contact {
   display: flex;
   align-items: center;
+  justify-content: center;
   gap: 12px;
   margin-bottom: 0;
 }
+.logo-contact .top_social_profile { text-align: center; }
 .logo-contact .single-top-contact i { display: none; }
 .logo-contact .single-top-contact .mw-pill-icon {
   width: 38px;
@@ -5380,18 +5382,18 @@ transition:0.3s;
   position: relative;
   z-index: 500;
 }
-#main-menu ul li a { color: var(--mw-navy); font-weight: 700; }
+#main-menu ul li a { color: #000000; font-weight: 700; }
 #main-menu ul li a:hover { color: var(--mw-pink); }
 #main-menu ul li.menu-item-has-children > a::after { color: var(--mw-pink); }
 
 /* Menu item colors */
-#main-menu > ul > li > ul li a { color: #6CC0A9; }
-#main-menu > ul > li:nth-child(1) > a { color: #E54F8C; }
-#main-menu > ul > li:nth-child(2) > a { color: #9169A9; }
-#main-menu > ul > li:nth-child(3) > a { color: #6CC0A9; }
-#main-menu > ul > li:nth-child(4) > a { color: #68BFEC; }
-#main-menu > ul > li:nth-child(5) > a { color: #ff9900; }
-#main-menu > ul > li:nth-child(6) > a { color: #3F5BA4; }
+#main-menu > ul > li > ul li a { color: #000000; }
+#main-menu > ul > li:nth-child(1) > a,
+#main-menu > ul > li:nth-child(2) > a,
+#main-menu > ul > li:nth-child(3) > a,
+#main-menu > ul > li:nth-child(4) > a,
+#main-menu > ul > li:nth-child(5) > a,
+#main-menu > ul > li:nth-child(6) > a { color: #000000; }
 
 /* ---- About section ------------------------------------------------------- */
 .ab_one {
@@ -5519,7 +5521,7 @@ transition:0.3s;
 
 /* ---- Address (Contactanos) section -------------------------------------- */
 .address_area {
-  background: #444444;
+  background: #000000;
   position: relative;
   overflow: hidden;
 }
@@ -5728,6 +5730,25 @@ a:hover { color: var(--mw-pink); }
 #taller-ideal .single_feature_one p {
   flex: 1;
 }
+#taller-ideal .sf_need_btn {
+  align-self: center;
+  margin-top: 24px;
+  padding: 12px 26px;
+  background: var(--mw-pink);
+  color: #fff;
+  font-weight: 700;
+  text-transform: none;
+  border-radius: 30px;
+  transition: background 0.25s ease, transform 0.25s ease;
+}
+#taller-ideal .sf_need_btn:hover {
+  background: #000000;
+  color: #fff;
+  transform: translateY(-2px);
+}
+@media (max-width: 767px) {
+  #taller-ideal .sf_need_btn { align-self: center; margin-top: 18px; }
+}
 .footer .single_footer ul li a { text-transform: none; }
 
 /* ============================================================
@@ -5836,13 +5857,14 @@ a:hover { color: var(--mw-pink); }
 }
 .pyme-banner p {
   color: #fff;
-  font-weight: 700;
-  font-size: 16px;
+  font-weight: 600;
+  font-size: 20px;
+  line-height: 1.35;
   margin: 0;
 }
 @media (max-width: 767px) {
   .pyme-banner { padding: 16px 20px; margin-top: 20px; }
-  .pyme-banner p { font-size: 14px; }
+  .pyme-banner p { font-size: 18px; }
 }
 
 /* ---- Main menu: evitar que 6 items se corten a dos líneas ---- */
@@ -5889,6 +5911,78 @@ a:hover { color: var(--mw-pink); }
   .bio-card { padding: 30px 24px; }
 }
 
+/* ---- Sobre mí: sección oculta + modal ----------------------------------- */
+#sobre-mi-bio {
+  display: none;
+}
+
+.mw-modal-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.6);
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+  padding: 40px 20px;
+  overflow-y: auto;
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.25s ease, visibility 0.25s ease;
+  z-index: 2000;
+}
+.mw-modal-overlay.is-open {
+  opacity: 1;
+  visibility: visible;
+}
+.mw-modal {
+  position: relative;
+  background: #fff;
+  border-radius: 20px;
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.25);
+  max-width: 760px;
+  width: 100%;
+  margin: auto;
+  padding: 24px;
+  transform: translateY(-16px);
+  transition: transform 0.25s ease;
+}
+.mw-modal-overlay.is-open .mw-modal {
+  transform: translateY(0);
+}
+.mw-modal .bio-card {
+  box-shadow: none;
+  padding: 36px 40px 40px;
+}
+.mw-modal-close {
+  position: absolute;
+  top: 14px;
+  right: 14px;
+  width: 40px;
+  height: 40px;
+  border: 0;
+  border-radius: 50%;
+  background: #000000;
+  color: #fff;
+  font-size: 20px;
+  line-height: 1;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  transition: background 0.2s ease, transform 0.2s ease;
+  z-index: 1;
+}
+.mw-modal-close:hover {
+  background: var(--mw-pink);
+  transform: rotate(90deg);
+}
+body.mw-modal-open {
+  overflow: hidden;
+}
+@media (max-width: 767px) {
+  .mw-modal .bio-card { padding: 40px 22px 26px; }
+}
+
 /* ---- Botones "Quiero asesoría personalizada" / "¡Coordinemos una videollamada!" en mobile ---- */
 @media (max-width: 767px) {
   .single_ins_content2 .cta {
@@ -5908,4 +6002,199 @@ a:hover { color: var(--mw-pink); }
   .single_ins_content2 .cta svg {
     flex-shrink: 0;
   }
+}
+
+/* ============================================================
+   TITULARES UNIFICADOS — mismo tamaño que el <h1> del hero
+   ("¿Tu negocio depende de la suerte...")
+   ============================================================ */
+.ab_content h2,
+#taller-ideal .section-title h1,
+#talleres .section-title h1,
+.address_area .title-contact,
+.section-title-two h2 {
+  font-size: 50px !important;
+  line-height: 64px !important;
+}
+@media only screen and (max-width: 1199px) {
+  .ab_content h2,
+  #taller-ideal .section-title h1,
+  #talleres .section-title h1,
+  .address_area .title-contact,
+  .section-title-two h2 {
+    font-size: 44px !important;
+    line-height: 56px !important;
+  }
+}
+@media only screen and (max-width: 991px) {
+  .ab_content h2,
+  #taller-ideal .section-title h1,
+  #talleres .section-title h1,
+  .address_area .title-contact,
+  .section-title-two h2 {
+    font-size: 38px !important;
+    line-height: 50px !important;
+  }
+}
+@media only screen and (max-width: 767px) {
+  .ab_content h2,
+  #taller-ideal .section-title h1,
+  #talleres .section-title h1,
+  .address_area .title-contact,
+  .section-title-two h2 {
+    font-size: 26px !important;
+    line-height: 1.35 !important;
+  }
+}
+
+/* ============================================================
+   ASESORAMIENTO — oculto; se muestra en un modal desde el banner PyME
+   ============================================================ */
+#asesoramiento { display: none; }
+
+/* Modal ancho para las dos tarjetas */
+.mw-modal.mw-modal--wide { max-width: 1080px; }
+#asesoramiento-modal .mw-modal-content .row { margin: 0; }
+#asesoramiento-modal .single_ins2 { margin-bottom: 0; }
+@media (max-width: 991px) {
+  #asesoramiento-modal .mw-modal-content .single_ins2 { margin-bottom: 20px; }
+  #asesoramiento-modal .mw-modal-content [class*="col-"]:last-child .single_ins2 { margin-bottom: 0; }
+}
+
+/* Alinear el texto y los botones de ambas tarjetas a la misma altura */
+#asesoramiento-modal .single_ins2 { align-items: stretch; }
+#asesoramiento-modal .single_ins_content2 {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
+#asesoramiento-modal .single_ins_content2 h2 { min-height: 2.4em; }
+#asesoramiento-modal .single_ins_content2 p { margin-bottom: 0; }
+#asesoramiento-modal .single_ins_content2 .cta {
+  margin-top: auto;
+  margin-left: 0;
+  margin-right: auto;
+  align-self: flex-start;
+}
+@media (max-width: 991px) {
+  #asesoramiento-modal .single_ins_content2 h2 { min-height: 0; }
+  #asesoramiento-modal .single_ins_content2 .cta { margin-top: 24px; }
+}
+
+/* Banner PyME: todo el bloque es el CTA */
+.pyme-banner { cursor: pointer; transition: background 0.25s ease, transform 0.25s ease; }
+.pyme-banner:hover { background: #ffad33; transform: translateY(-2px); }
+
+/* Rectángulos de asesoramiento: más bajos, redondeados, fondo negro */
+.single_ins2,
+.single_ins2.si_bg {
+  background: #000000;
+  border-radius: 20px;
+  padding: 40px;
+}
+.single_ins_content2 h4,
+.single_ins_content2 h2,
+.single_ins_content2 p,
+.single_ins_content2 p b { color: #ffffff; }
+
+/* Botones "Quiero asesoría..." / "¡Coordinemos..." : sin fondo rosa, texto y flecha naranja */
+.single_ins_content2 .cta { background: transparent; padding-left: 0; }
+.single_ins_content2 .cta::before,
+.single_ins_content2 .cta::after { display: none; }
+.single_ins_content2 .cta span,
+.single_ins_content2 .cta:hover span { color: #ff9900; }
+.single_ins_content2 .cta svg,
+.single_ins_content2 .cta:hover svg { color: #ff9900; stroke: #ff9900; }
+
+/* ============================================================
+   BOTÓN "Quiero inscribirme" en las cards de "Aprendé fácil y rápido"
+   ============================================================ */
+#talleres .single_tca .tca_btns {
+  margin-top: 20px;
+  display: flex;
+  flex-wrap: nowrap;
+  justify-content: center;
+  gap: 8px;
+  width: 100%;
+}
+#talleres .single_tca .tca_btn {
+  display: inline-block;
+  padding: 9px 14px;
+  background: #ffffff;
+  color: #222222;
+  font-weight: 700;
+  font-size: 13px;
+  line-height: 1;
+  white-space: nowrap;
+  border-radius: 30px;
+  text-transform: none;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+#talleres .single_tca .tca_btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 18px rgba(0, 0, 0, 0.18);
+  color: #222222;
+}
+
+/* Ícono PDF "ver programa" — aparece al pasar el mouse por la card */
+#talleres .single_tca .tca_pdf {
+  position: absolute;
+  top: 14px;
+  right: 14px;
+  width: 40px;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  background: #ffffff;
+  color: #cc3333;
+  font-size: 18px;
+  line-height: 1;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+  opacity: 0;
+  transform: translateY(-6px);
+  pointer-events: none;
+  transition: opacity 0.25s ease, transform 0.25s ease;
+  z-index: 6;
+}
+#talleres .single_tca .tca_pdf i {
+  display: block;
+  line-height: 1;
+}
+/* Ícono del mismo color que la tarjeta */
+#talleres .sc_one  .tca_pdf { color: #cc3333; }
+#talleres .sc_two  .tca_pdf { color: #66ccff; }
+#talleres .sc_three .tca_pdf { color: #ff6699; }
+#talleres .sc_four  .tca_pdf { color: #ffcc33; }
+#talleres .sc_five  .tca_pdf { color: #996699; }
+#talleres .sc_six  .tca_pdf { color: #66cc99; }
+#talleres .single_tca:hover .tca_pdf,
+#talleres .single_tca:focus-within .tca_pdf {
+  opacity: 1;
+  transform: translateY(0);
+  pointer-events: auto;
+}
+#talleres .single_tca .tca_pdf::after {
+  content: attr(data-tip);
+  position: absolute;
+  top: 50%;
+  right: calc(100% + 10px);
+  transform: translateY(-50%);
+  background: #000000;
+  color: #ffffff;
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: .3px;
+  text-transform: uppercase;
+  padding: 5px 9px;
+  border-radius: 6px;
+  white-space: nowrap;
+  opacity: 0;
+  transition: opacity 0.2s ease;
+  pointer-events: none;
+}
+#talleres .single_tca .tca_pdf:hover::after,
+#talleres .single_tca .tca_pdf:focus-visible::after {
+  opacity: 1;
 }
