@@ -5227,11 +5227,11 @@ transition:0.3s;
 .logo-contact .single-top-contact {
   display: flex;
   align-items: center;
-  justify-content: center;
+  justify-content: flex-start;
   gap: 12px;
   margin-bottom: 0;
 }
-.logo-contact .top_social_profile { text-align: center; }
+.logo-contact .top_social_profile { text-align: right; }
 .logo-contact .single-top-contact i { display: none; }
 .logo-contact .single-top-contact .mw-pill-icon {
   width: 38px;
@@ -6117,6 +6117,8 @@ body.mw-modal-open {
   gap: 8px;
   width: 100%;
 }
+/* Cards "PRÓXIMAMENTE": sin botón de inscripción */
+#talleres .single_tca.coming-soon .tca_btns { display: none; }
 #talleres .single_tca .tca_btn {
   display: inline-block;
   padding: 9px 14px;
