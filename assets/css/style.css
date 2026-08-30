@@ -1023,7 +1023,7 @@ transform: translate(0, -10px);
 	margin-bottom: 20px;
 	line-height: 68px;
 	font-size: 58px;
-	font-weight: 600;
+	font-weight: 400;
 }
 @media only screen and (max-width:480px) { 
 .ab_content h2{font-size: 42px;line-height: 52px;}
@@ -5729,6 +5729,7 @@ a:hover { color: var(--mw-pink); }
 }
 #taller-ideal .single_feature_one p {
   flex: 1;
+  text-align: justify;
 }
 #taller-ideal .sf_need_btn {
   align-self: center;
@@ -6261,7 +6262,7 @@ body.mw-modal-open #sm_menu_ham { display: none !important; }
 }
 .mw-sched-date strong {
   display: inline-block;
-  color: #2d6cdf;
+  color: #555555;
   font-size: 40px;
   font-weight: 800;
   margin-right: 6px;
@@ -6273,14 +6274,14 @@ body.mw-modal-open #sm_menu_ham { display: none !important; }
 }
 .mw-sched-row.mw-sched-time {
   font-weight: 700;
-  color: #2d6cdf;
+  color: #555555;
   margin-bottom: 20px;
 }
 .mw-sched-btn {
   margin-top: auto;
   display: block;
   text-align: center;
-  background: #1b1f3b;
+  background: #000000;
   color: #fff;
   font-size: 15px;
   font-weight: 600;
