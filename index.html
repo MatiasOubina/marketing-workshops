@@ -106,7 +106,7 @@
 										<li><a href="#taller-ideal">El taller ideal para tu proyecto</a></li>
 									</ul>
 								</li>
-								<li><a href="#">¿Para qué marketing?</a></li>
+								<li><a href="#about">¿Para qué marketing?</a></li>
 								<li class="menu-item-has-children"><a href="#asesoramiento">Asesoramiento personalizado</a>
 									<ul>
 										<li><a href="#asesoramiento-pymes">Pymes</a></li>
@@ -138,7 +138,7 @@
 								<li><a href="#taller-ideal">El taller ideal para tu proyecto</a></li>
 							</ul>
 						</li>
-						<li><a href="#">¿Para qué marketing?</a></li>
+						<li><a href="#about">¿Para qué marketing?</a></li>
 						<li><a href="#asesoramiento">Asesoramiento personalizado</a>
 							<ul class="sub-menu">
 								<li><a href="#asesoramiento-pymes">Pymes</a></li>
@@ -410,7 +410,7 @@
 				<div class="col-lg-4 col-sm-6 col-xs-12">
 					<div class="single_tca sc_one">
 						<h2><a href="#">Marketing integral para emprendedores</a></h2>
-							<a href="#" class="tca_pdf" aria-label="ver programa" data-tip="ver programa"><i class="fa-solid fa-file-pdf" aria-hidden="true"></i></a>
+							<a href="assets/programas/marketing-integral-para-emprendedores.pdf" target="_blank" rel="noopener" class="tca_pdf" aria-label="ver programa" data-tip="ver programa"><i class="fa-solid fa-file-pdf" aria-hidden="true"></i></a>
 							<div class="tca_btns">
 								<a href="#contact" class="tca_btn">Quiero inscribirme</a>
 							</div>
@@ -419,7 +419,7 @@
 				<div class="col-lg-4 col-sm-6 col-xs-12">
 					<div class="single_tca sc_two">
 						<h2><a href="#">Anuncios pagos en redes sociales</a></h2>
-							<a href="#" class="tca_pdf" aria-label="ver programa" data-tip="ver programa"><i class="fa-solid fa-file-pdf" aria-hidden="true"></i></a>
+							<a href="assets/programas/anuncios-pagos-en-redes-sociales.pdf" target="_blank" rel="noopener" class="tca_pdf" aria-label="ver programa" data-tip="ver programa"><i class="fa-solid fa-file-pdf" aria-hidden="true"></i></a>
 							<div class="tca_btns">
 								<a href="#contact" class="tca_btn">Quiero inscribirme</a>
 							</div>
@@ -428,7 +428,7 @@
 				<div class="col-lg-4 col-sm-6 col-xs-12">
 					<div class="single_tca sc_three">
 						<h2><a href="#">Campañas de email marketing</a></h2>
-							<a href="#" class="tca_pdf" aria-label="ver programa" data-tip="ver programa"><i class="fa-solid fa-file-pdf" aria-hidden="true"></i></a>
+							<a href="assets/programas/campanias-de-email-marketing.pdf" target="_blank" rel="noopener" class="tca_pdf" aria-label="ver programa" data-tip="ver programa"><i class="fa-solid fa-file-pdf" aria-hidden="true"></i></a>
 							<div class="tca_btns">
 								<a href="#contact" class="tca_btn">Quiero inscribirme</a>
 							</div>
@@ -438,7 +438,7 @@
 				<div class="col-lg-4 col-sm-6 col-xs-12" style="margin-top:20px;">
 					<div class="single_tca sc_four">
 						<h2><a href="#">Comunicación &amp; promoción</a></h2>
-							<a href="#" class="tca_pdf" aria-label="ver programa" data-tip="ver programa"><i class="fa-solid fa-file-pdf" aria-hidden="true"></i></a>
+							<a href="assets/programas/comunicacion-y-promocion.pdf" target="_blank" rel="noopener" class="tca_pdf" aria-label="ver programa" data-tip="ver programa"><i class="fa-solid fa-file-pdf" aria-hidden="true"></i></a>
 							<div class="tca_btns">
 								<a href="#contact" class="tca_btn">Quiero inscribirme</a>
 							</div>
@@ -783,6 +783,131 @@
 				e.preventDefault();
 				e.stopPropagation();
 				openModal(e);
+			}
+		}, true);
+
+		closeBtn.addEventListener('click', closeModal);
+		overlay.addEventListener('click', function (e) {
+			if (e.target === overlay) { closeModal(); }
+		});
+		document.addEventListener('keydown', function (e) {
+			if ((e.key === 'Escape' || e.keyCode === 27) && overlay.classList.contains('is-open')) {
+				closeModal();
+			}
+		});
+	})();
+	</script>
+
+	<!-- START MODAL INSCRIPCIÓN -->
+	<div class="mw-modal-overlay" id="inscripcion-modal" role="dialog" aria-modal="true" aria-labelledby="inscripcion-modal-title" hidden>
+		<div class="mw-modal">
+			<button type="button" class="mw-modal-close" aria-label="Cerrar">&times;</button>
+			<div class="mw-modal-heading">
+				<h3 id="inscripcion-modal-title">Elegí tu fecha de cursada</h3>
+				<p>Grupos reducidos. Reservá tu lugar en la comisión que mejor te quede.</p>
+			</div>
+			<div class="mw-sched-grid">
+				<div class="mw-sched-card"
+					data-inicio="Lunes 07 de septiembre de 2026"
+					data-fin="Lunes 05 de octubre de 2026"
+					data-dias="Lunes y Miércoles"
+					data-horario="09:00 a 11:00 hs">
+					<p class="mw-sched-kicker">Inicia: Lunes</p>
+					<p class="mw-sched-date"><strong>07</strong> sep 2026</p>
+					<p class="mw-sched-row">Días: Lun y Mié</p>
+					<p class="mw-sched-row mw-sched-time">09:00 a 11:00 h</p>
+					<a href="inscripcion.html" class="mw-sched-btn">Anotarme</a>
+				</div>
+				<div class="mw-sched-card"
+					data-inicio="Martes 15 de septiembre de 2026"
+					data-fin="Jueves 08 de octubre de 2026"
+					data-dias="Martes y Jueves"
+					data-horario="18:00 a 20:00 hs">
+					<p class="mw-sched-kicker">Inicia: Martes</p>
+					<p class="mw-sched-date"><strong>15</strong> sep 2026</p>
+					<p class="mw-sched-row">Días: Mar y Jue</p>
+					<p class="mw-sched-row mw-sched-time">18:00 a 20:00 h</p>
+					<a href="inscripcion.html" class="mw-sched-btn">Anotarme</a>
+				</div>
+				<div class="mw-sched-card"
+					data-inicio="Sábado 03 de octubre de 2026"
+					data-fin="Sábado 24 de octubre de 2026"
+					data-dias="Sábados"
+					data-horario="10:00 a 13:00 hs">
+					<p class="mw-sched-kicker">Inicia: Sábado</p>
+					<p class="mw-sched-date"><strong>03</strong> oct 2026</p>
+					<p class="mw-sched-row">Días: Sábados</p>
+					<p class="mw-sched-row mw-sched-time">10:00 a 13:00 h</p>
+					<a href="inscripcion.html" class="mw-sched-btn">Anotarme</a>
+				</div>
+			</div>
+		</div>
+	</div>
+	<!-- END MODAL INSCRIPCIÓN -->
+	<script>
+	(function () {
+		var overlay = document.getElementById('inscripcion-modal');
+		if (!overlay) { return; }
+		var closeBtn = overlay.querySelector('.mw-modal-close');
+		var lastFocus = null;
+		var currentTaller = '';
+
+		function tallerFromTrigger(trigger) {
+			var box = trigger.closest('.single_feature_one');
+			if (box) {
+				var strong = box.querySelector('p strong');
+				if (strong) { return strong.textContent.replace(/[.,]\s*$/, '').trim(); }
+			}
+			box = trigger.closest('.single_tca');
+			if (box) {
+				var h2 = box.querySelector('h2');
+				if (h2) { return h2.textContent.trim(); }
+			}
+			return 'Marketing para emprendedores';
+		}
+
+		function openModal(e) {
+			if (e) { e.preventDefault(); }
+			lastFocus = document.activeElement;
+			overlay.hidden = false;
+			void overlay.offsetWidth;
+			overlay.classList.add('is-open');
+			document.body.classList.add('mw-modal-open');
+			closeBtn.focus();
+		}
+		function closeModal() {
+			overlay.classList.remove('is-open');
+			document.body.classList.remove('mw-modal-open');
+			setTimeout(function () { overlay.hidden = true; }, 250);
+			if (lastFocus && lastFocus.focus) { lastFocus.focus(); }
+		}
+
+		document.addEventListener('click', function (e) {
+			var t = e.target;
+			if (!t || !t.closest) { return; }
+			// Botones que abren el modal de inscripción
+			var trigger = t.closest('.sf_need_btn, #talleres .tca_btn');
+			if (trigger) {
+				e.preventDefault();
+				e.stopPropagation();
+				currentTaller = tallerFromTrigger(trigger);
+				openModal(e);
+				return;
+			}
+			// Botón "Anotarme" dentro del modal: ir al proceso de inscripción
+			var schedBtn = t.closest('.mw-sched-btn');
+			if (schedBtn && overlay.contains(schedBtn)) {
+				e.preventDefault();
+				e.stopPropagation();
+				var card = schedBtn.closest('.mw-sched-card');
+				var params = new URLSearchParams({
+					taller: currentTaller || 'Marketing para emprendedores',
+					inicio: card ? (card.getAttribute('data-inicio') || '') : '',
+					fin: card ? (card.getAttribute('data-fin') || '') : '',
+					dias: card ? (card.getAttribute('data-dias') || '') : '',
+					horario: card ? (card.getAttribute('data-horario') || '') : ''
+				});
+				window.location.href = 'inscripcion.html?' + params.toString();
 			}
 		}, true);
 

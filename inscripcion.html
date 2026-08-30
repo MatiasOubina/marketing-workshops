@@ -1,0 +1,614 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>Proceso de inscripción — Marketing Workshops</title>
+	<link rel="icon" href="assets/images/all-img/LOGO MW-01.png">
+	<style>
+		* { box-sizing: border-box; margin: 0; padding: 0; }
+		:root {
+			/* Paleta Marketing Workshops */
+			--mw-pink: #ff6699;
+			--mw-red: #cc3333;
+			--mw-yellow: #ffcc33;
+			--mw-mint: #66cc99;
+			--mw-light-pink: #ffcccc;
+
+			--ins-navy: #1b1f3b;
+			--ins-blue: #ff6699;
+			--ins-panel: #eef1f7;
+			--ins-line: #d9dbe6;
+			--ins-text: #1c2340;
+			--ins-muted: #6b7280;
+			--ins-lime: #c3f53c;
+			--ins-link: #cc3333;
+		}
+		body {
+			font-family: Arial, Helvetica, sans-serif;
+			color: var(--ins-text);
+			background: #fff;
+			line-height: 1.45;
+		}
+		a { color: var(--ins-link); }
+
+		/* Header */
+		.ins-header {
+			display: flex;
+			align-items: center;
+			justify-content: space-between;
+			padding: 16px 28px;
+			max-width: 1320px;
+			margin: 0 auto;
+		}
+		.ins-header img { height: 34px; display: block; }
+		.ins-locale {
+			font-size: 14px;
+			color: var(--ins-text);
+			display: inline-flex;
+			align-items: center;
+			gap: 8px;
+		}
+		.ins-flag {
+			width: 20px; height: 14px; border-radius: 2px;
+			background: linear-gradient(#74acdf 0 33%, #fff 33% 66%, #74acdf 66% 100%);
+			display: inline-block;
+		}
+
+		/* Title bar + steps */
+		.ins-titlebar {
+			background: var(--ins-navy);
+			color: #fff;
+			text-align: center;
+			font-weight: 700;
+			letter-spacing: 1px;
+			font-size: 14px;
+			padding: 10px;
+			text-transform: uppercase;
+		}
+		.ins-steps {
+			display: grid;
+			grid-template-columns: repeat(3, 1fr);
+			border-bottom: 1px solid var(--ins-line);
+		}
+		.ins-step {
+			text-align: center;
+			padding: 14px 8px;
+			font-size: 15px;
+			font-weight: 700;
+			color: var(--ins-muted);
+			background: #fff;
+			border-right: 1px solid var(--ins-line);
+		}
+		.ins-step:last-child { border-right: 0; }
+		.ins-step.is-active { background: var(--ins-navy); color: #fff; box-shadow: inset 0 -4px 0 var(--mw-pink); }
+		.ins-step.is-done { color: var(--mw-mint); }
+
+		/* Layout */
+		.ins-wrap {
+			max-width: 1320px;
+			margin: 0 auto;
+			display: grid;
+			grid-template-columns: 1fr 420px;
+			gap: 34px;
+			padding: 30px 28px 60px;
+			align-items: start;
+		}
+		.ins-main {
+			background: var(--ins-panel);
+			border-radius: 4px;
+			padding: 34px 40px 40px;
+		}
+
+		h1.ins-h { font-size: 24px; font-weight: 700; margin-bottom: 22px; }
+		.ins-sub { color: var(--ins-muted); font-size: 14px; margin: -14px 0 22px; }
+
+		/* Form */
+		.ins-grid2 { display: grid; grid-template-columns: 1fr 1fr; gap: 16px 20px; }
+		.ins-field { margin-bottom: 16px; }
+		.ins-field label {
+			display: block;
+			font-size: 12px;
+			font-weight: 700;
+			letter-spacing: .4px;
+			text-transform: uppercase;
+			color: var(--ins-text);
+			margin-bottom: 6px;
+		}
+		.ins-field input,
+		.ins-field select {
+			width: 100%;
+			border: 1px solid var(--ins-line);
+			border-radius: 6px;
+			padding: 12px 12px;
+			font-size: 14px;
+			font-family: inherit;
+			background: #fff;
+			color: var(--ins-text);
+		}
+		.ins-field input:focus,
+		.ins-field select:focus { outline: 2px solid var(--ins-blue); outline-offset: 0; border-color: var(--ins-blue); }
+		.ins-hint { font-size: 12px; color: var(--ins-muted); margin-top: 5px; }
+		.ins-phone { display: grid; grid-template-columns: 92px 1fr; gap: 10px; }
+
+		.ins-toggle-link {
+			display: inline-block;
+			font-weight: 700;
+			font-size: 14px;
+			margin: 4px 0 18px;
+			cursor: pointer;
+			color: var(--ins-link);
+		}
+		.ins-check {
+			display: flex;
+			align-items: center;
+			gap: 10px;
+			font-size: 14px;
+			margin-bottom: 26px;
+		}
+		.ins-check input { width: 18px; height: 18px; }
+
+		/* Buttons */
+		.ins-actions { display: flex; align-items: center; gap: 26px; margin-top: 6px; }
+		.ins-btn {
+			border: 0;
+			border-radius: 6px;
+			background: var(--ins-navy);
+			color: #fff;
+			font-weight: 700;
+			font-size: 15px;
+			padding: 15px 26px;
+			cursor: pointer;
+			font-family: inherit;
+			display: inline-flex;
+			align-items: center;
+			gap: 10px;
+		}
+		.ins-btn:hover { background: var(--mw-pink); }
+		.ins-btn--ghost {
+			background: #fff;
+			color: var(--ins-navy);
+			border: 1px solid var(--ins-navy);
+		}
+		.ins-btn--ghost:hover { background: #f1f4f9; }
+		.ins-back {
+			background: none;
+			border: 0;
+			font-weight: 700;
+			text-decoration: underline;
+			cursor: pointer;
+			font-size: 15px;
+			color: var(--ins-text);
+			font-family: inherit;
+		}
+
+		/* Trust badges */
+		.ins-trust {
+			margin-top: 30px;
+			border: 1px dashed var(--ins-line);
+			border-radius: 4px;
+			padding: 18px 22px;
+			display: grid;
+			grid-template-columns: 1fr 1fr;
+			gap: 14px 30px;
+			max-width: 470px;
+		}
+		.ins-trust span {
+			display: inline-flex;
+			align-items: center;
+			gap: 10px;
+			font-size: 13px;
+			font-weight: 700;
+			color: #2b8a5b;
+		}
+		.ins-trust span.is-dark { color: var(--ins-text); }
+
+		/* Payment options */
+		.ins-pay-opt {
+			display: flex;
+			align-items: center;
+			gap: 14px;
+			border: 1px solid var(--ins-line);
+			border-radius: 8px;
+			background: #fff;
+			padding: 16px 18px;
+			margin-bottom: 12px;
+			cursor: pointer;
+		}
+		.ins-pay-opt.is-active {
+			border-color: var(--ins-blue);
+			box-shadow: inset 3px 0 0 var(--ins-blue);
+		}
+		.ins-pay-ico {
+			width: 40px; height: 40px; flex: 0 0 40px;
+			display: grid; place-items: center;
+			color: var(--ins-navy);
+		}
+		.ins-pay-ico svg { width: 30px; height: 30px; }
+		.ins-pay-txt strong { display: block; font-size: 15px; }
+		.ins-pay-txt small { color: var(--ins-link); font-size: 13px; }
+
+		/* Transfer detail card */
+		.ins-detail-card {
+			background: #fff;
+			border-radius: 6px;
+			padding: 34px 40px 40px;
+		}
+		.ins-detail-card h2 { font-size: 20px; font-weight: 700; margin-bottom: 14px; }
+		.ins-detail-sep {
+			border: 0;
+			border-top: 2px solid var(--ins-blue);
+			position: relative;
+			margin: 6px 0 26px;
+		}
+		.ins-detail-sep::after {
+			content: "";
+			position: absolute;
+			left: 46px;
+			top: -1px;
+			width: 22px; height: 22px;
+			background: #fff;
+			border-right: 2px solid var(--ins-blue);
+			border-bottom: 2px solid var(--ins-blue);
+			transform: translateY(-2px) rotate(45deg);
+		}
+		.ins-method-title {
+			display: flex; align-items: center; gap: 12px;
+			font-size: 18px; font-weight: 700; margin-bottom: 22px;
+		}
+		.ins-method-title svg { width: 30px; height: 30px; color: var(--ins-navy); }
+		.ins-bank-h { font-weight: 700; margin-bottom: 8px; }
+		.ins-bank-data { color: #2b8a5b; font-size: 14px; margin-bottom: 24px; }
+		.ins-bank-data div { margin-bottom: 3px; }
+
+		/* Aside */
+		.ins-summary {
+			background: var(--ins-navy);
+			color: #fff;
+			border-radius: 4px;
+			padding: 26px 28px 28px;
+		}
+		.ins-summary-h { font-size: 15px; font-weight: 700; }
+		.ins-summary hr { border: 0; border-top: 1px solid rgba(255,255,255,.25); margin: 14px 0 20px; }
+		.ins-course-label { font-size: 20px; font-weight: 400; }
+		.ins-course-name { font-size: 24px; font-weight: 700; margin-bottom: 18px; }
+		.ins-price-final {
+			display: flex; justify-content: space-between;
+			background: var(--mw-light-pink);
+			color: var(--ins-navy);
+			font-weight: 700;
+			font-size: 19px;
+			padding: 12px 16px;
+			border-radius: 4px;
+			margin-top: 4px;
+		}
+		.ins-currency-note { text-align: center; font-size: 13px; margin-top: 18px; color: #e7e9f5; }
+
+		.ins-personal {
+			border: 1px dashed var(--ins-line);
+			border-radius: 4px;
+			padding: 22px 26px;
+			margin-top: 20px;
+			font-size: 14px;
+		}
+		.ins-personal h3 { font-size: 16px; margin: 0 0 8px; }
+		.ins-personal h3 + p { margin-bottom: 4px; }
+		.ins-personal .ins-blk { margin-top: 18px; }
+		.ins-personal .ins-hl { color: var(--ins-link); }
+
+		/* Success */
+		.ins-success {
+			background: #fff;
+			border-radius: 6px;
+			padding: 44px 40px;
+			text-align: center;
+		}
+		.ins-success .tick {
+			width: 64px; height: 64px; border-radius: 50%;
+			background: #e5f6ec; color: #2b8a5b;
+			display: grid; place-items: center; margin: 0 auto 18px;
+		}
+		.ins-success .tick svg { width: 34px; height: 34px; }
+		.ins-success h2 { font-size: 22px; margin-bottom: 10px; }
+		.ins-success p { color: var(--ins-muted); font-size: 15px; }
+
+		[hidden] { display: none !important; }
+
+		@media (max-width: 980px) {
+			.ins-wrap { grid-template-columns: 1fr; }
+			.ins-main { padding: 26px 20px 30px; }
+			.ins-grid2 { grid-template-columns: 1fr; }
+			.ins-detail-card { padding: 26px 20px; }
+		}
+	</style>
+</head>
+<body>
+	<header class="ins-header">
+		<a href="index.html"><img src="assets/images/all-img/LOGO MW-01.png" alt="Marketing Workshops"></a>
+	</header>
+
+	<div class="ins-titlebar">Proceso de inscripción</div>
+	<div class="ins-steps">
+		<div class="ins-step is-active" data-step="1">Cargar datos</div>
+		<div class="ins-step" data-step="2">Confirmar fecha</div>
+		<div class="ins-step" data-step="3">Elegir pago</div>
+	</div>
+
+	<div class="ins-wrap">
+		<main>
+			<div class="ins-main">
+				<!-- ============ PANE 1: DATOS ============ -->
+				<section class="ins-pane" data-pane="1">
+					<h1 class="ins-h">Ingresa tus datos</h1>
+					<form id="ins-form" novalidate>
+						<div class="ins-grid2">
+							<div class="ins-field">
+								<label for="f-nombre">Nombre</label>
+								<input type="text" id="f-nombre" name="nombre" placeholder="Juan" required>
+							</div>
+							<div class="ins-field">
+								<label for="f-apellido">Apellido/s</label>
+								<input type="text" id="f-apellido" name="apellido" placeholder="López" required>
+							</div>
+						</div>
+						<div class="ins-field">
+							<label for="f-doc">Número de documento</label>
+							<input type="text" id="f-doc" name="doc" placeholder="Número de Documento" required>
+						</div>
+						<div class="ins-field">
+							<label for="f-mail">Mail</label>
+							<input type="email" id="f-mail" name="mail" placeholder="ejemplo@mail.com" required>
+						</div>
+						<div class="ins-field">
+							<label for="f-tel">Número de teléfono</label>
+							<input type="text" id="f-tel" name="tel" placeholder="11 2345-6789" required>
+							<p class="ins-hint">Ingrese su número con código de área</p>
+						</div>
+
+						<span class="ins-toggle-link" id="f-empresa-toggle">Necesito factura a nombre de una empresa &#9662;</span>
+						<div id="f-empresa" hidden>
+							<div class="ins-grid2">
+								<div class="ins-field">
+									<label for="f-razon">Razón social</label>
+									<input type="text" id="f-razon" name="razon" placeholder="Empresa S.A.">
+								</div>
+								<div class="ins-field">
+									<label for="f-cuit-emp">CUIT</label>
+									<input type="text" id="f-cuit-emp" name="cuitEmp" placeholder="30-12345678-9">
+								</div>
+							</div>
+						</div>
+
+						<label class="ins-check">
+							<input type="checkbox" id="f-terminos">
+							<span>Acepto los <a href="#">términos y condiciones del servicio</a></span>
+						</label>
+
+						<p class="ins-hint" id="f-error" style="color:#c23; font-weight:700; margin-bottom:14px;" hidden>Completá los campos obligatorios y aceptá los términos.</p>
+
+						<div class="ins-actions">
+							<button type="button" class="ins-back" onclick="window.location.href='index.html'">Volver</button>
+							<button type="submit" class="ins-btn" id="btn-pagar">Pagar &rarr;</button>
+						</div>
+					</form>
+				</section>
+
+				<!-- ============ PANE 2: ELEGIR PAGO ============ -->
+				<section class="ins-pane" data-pane="2" hidden>
+					<h1 class="ins-h">Elige el medio de pago</h1>
+					<p class="ins-sub">Selecciona cómo deseas abonar tu formación.</p>
+
+					<div class="ins-pay-opt is-active" id="opt-transfer">
+						<span class="ins-pay-ico" aria-hidden="true">
+							<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M3 21h18M4 10h16M5 10 12 4l7 6M6 10v8M10 10v8M14 10v8M18 10v8"></path></svg>
+						</span>
+						<span class="ins-pay-txt">
+							<strong>Transferencia bancaria</strong>
+							<small id="opt-transfer-price">Precio final: $ 0</small>
+						</span>
+					</div>
+
+					<div class="ins-actions" style="margin-top:22px;">
+						<button type="button" class="ins-back" data-goto="1">Volver</button>
+						<button type="button" class="ins-btn" id="btn-continuar">Continuar</button>
+					</div>
+				</section>
+
+				<!-- ============ PANE 3: DETALLE TRANSFERENCIA ============ -->
+				<section class="ins-pane" data-pane="3" hidden>
+					<div class="ins-detail-card">
+						<h2>Elegiste el medio de pago</h2>
+						<hr class="ins-detail-sep">
+						<div class="ins-method-title">
+							<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M3 21h18M4 10h16M5 10 12 4l7 6M6 10v8M10 10v8M14 10v8M18 10v8"></path></svg>
+							Transferencia bancaria
+						</div>
+
+						<p class="ins-bank-h">Datos bancarios de Marketing Workshops</p>
+						<div class="ins-bank-data" id="bank-data"></div>
+
+						<p class="ins-bank-h">Datos de quien transfiere</p>
+						<div class="ins-field">
+							<label for="t-cuit">CUIT/CUIL *</label>
+							<input type="text" id="t-cuit" placeholder="27-12345678-9">
+						</div>
+						<div class="ins-field">
+							<label for="t-nombre">Nombre *</label>
+							<input type="text" id="t-nombre">
+						</div>
+						<div class="ins-field">
+							<label for="t-apellido">Apellido/s *</label>
+							<input type="text" id="t-apellido">
+						</div>
+
+						<div class="ins-actions" style="justify-content:space-between; max-width:520px;">
+							<button type="button" class="ins-btn ins-btn--ghost" data-goto="2">Cancelar</button>
+							<button type="button" class="ins-btn" id="btn-reservar">Reservar lugar</button>
+						</div>
+					</div>
+				</section>
+
+				<!-- ============ PANE 4: OK ============ -->
+				<section class="ins-pane" data-pane="4" hidden>
+					<div class="ins-success">
+						<span class="tick" aria-hidden="true">
+							<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"></path></svg>
+						</span>
+						<h2>¡Lugar reservado!</h2>
+						<p>Te enviamos por mail los datos para completar la transferencia y confirmar tu inscripción.</p>
+					</div>
+				</section>
+			</div>
+
+			<div class="ins-trust">
+				<span>&#9993; Cancelación sin costo</span>
+				<span class="is-dark">&#128274; Transacción segura</span>
+				<span>&#8635; Dinero transferible</span>
+				<span class="is-dark">&#128737; Aprendizaje asegurado</span>
+			</div>
+		</main>
+
+		<aside>
+			<div class="ins-summary">
+				<div class="ins-summary-h">Detalle de la inscripción</div>
+				<hr>
+				<div class="ins-course-label">Taller de</div>
+				<div class="ins-course-name" id="s-taller">Marketing para emprendedores</div>
+				<div class="ins-price-final"><span>Precio final:</span><span id="s-final">$ 0</span></div>
+				<p class="ins-currency-note" id="s-currency" hidden>Los precios están expresados en ARS (pesos argentinos).</p>
+			</div>
+
+			<div class="ins-personal" id="s-personal" hidden>
+				<h3>Datos personales</h3>
+				<p>Nombre y apellido: <span id="p-nombre"></span></p>
+				<p>Número de Documento: <span id="p-doc"></span></p>
+				<p>Teléfono: <span class="ins-hl" id="p-tel"></span></p>
+				<p>e-mail: <span class="ins-hl" id="p-mail"></span></p>
+				<div class="ins-blk">
+					<h3>Fecha</h3>
+					<p>Inicio: <span id="p-inicio"></span></p>
+					<p>Finalización: <span id="p-fin"></span></p>
+					<p>Horario: <span id="p-horario"></span> <span class="ins-flag" aria-hidden="true"></span> Hora Argentina</p>
+				</div>
+			</div>
+		</aside>
+	</div>
+
+	<script>
+	(function () {
+		var qs = new URLSearchParams(window.location.search);
+		function param(k, d) { var v = qs.get(k); return (v && v.trim()) ? v.trim() : (d || ''); }
+
+		// ---- Precio ----
+		var PRECIO_FINAL = 35000;
+
+		function money(n) {
+			return '$ ' + n.toLocaleString('es-AR');
+		}
+
+		document.getElementById('s-taller').textContent = param('taller', 'Marketing para emprendedores');
+		document.getElementById('s-final').textContent = money(PRECIO_FINAL);
+		document.getElementById('opt-transfer-price').textContent = 'Precio final: ' + money(PRECIO_FINAL);
+		document.title = 'Inscripción · ' + param('taller', 'Marketing Workshops');
+
+		// ---- Navegación entre panes ----
+		var panes = document.querySelectorAll('.ins-pane');
+		var steps = document.querySelectorAll('.ins-step');
+		function showPane(n) {
+			panes.forEach(function (p) { p.hidden = (p.getAttribute('data-pane') !== String(n)); });
+			// Mapa pane -> paso visible (pane 3 y 4 siguen en "Elegir pago")
+			var stepForPane = { 1: 1, 2: 3, 3: 3, 4: 3 };
+			var current = stepForPane[n];
+			steps.forEach(function (s) {
+				var sn = parseInt(s.getAttribute('data-step'), 10);
+				s.classList.toggle('is-active', sn === current);
+				s.classList.toggle('is-done', sn < current);
+			});
+			document.getElementById('s-currency').hidden = (n === 1);
+			window.scrollTo({ top: 0, behavior: 'smooth' });
+		}
+
+		// ---- Empresa toggle ----
+		document.getElementById('f-empresa-toggle').addEventListener('click', function () {
+			var box = document.getElementById('f-empresa');
+			box.hidden = !box.hidden;
+		});
+
+		// ---- Paso 1: Pagar ----
+		document.getElementById('ins-form').addEventListener('submit', function (e) {
+			e.preventDefault();
+			var nombre = document.getElementById('f-nombre').value.trim();
+			var apellido = document.getElementById('f-apellido').value.trim();
+			var doc = document.getElementById('f-doc').value.trim();
+			var mail = document.getElementById('f-mail').value.trim();
+			var tel = document.getElementById('f-tel').value.trim();
+			var ok = nombre && apellido && doc && /\S+@\S+\.\S+/.test(mail) && tel && document.getElementById('f-terminos').checked;
+			document.getElementById('f-error').hidden = !!ok;
+			if (!ok) { return; }
+
+			document.getElementById('p-nombre').textContent = nombre + ' ' + apellido;
+			document.getElementById('p-doc').textContent = doc;
+			document.getElementById('p-tel').textContent = tel;
+			document.getElementById('p-mail').textContent = mail;
+			document.getElementById('p-inicio').textContent = param('inicio', 'A confirmar');
+			document.getElementById('p-fin').textContent = param('fin', 'A confirmar');
+			document.getElementById('p-horario').textContent = param('horario', 'A confirmar');
+			document.getElementById('s-personal').hidden = false;
+
+			// Prefill datos de quien transfiere
+			document.getElementById('t-nombre').value = nombre;
+			document.getElementById('t-apellido').value = apellido;
+
+			showPane(2);
+		});
+
+		// ---- Botones "Volver" / "Cancelar" con data-goto ----
+		document.querySelectorAll('[data-goto]').forEach(function (b) {
+			b.addEventListener('click', function () { showPane(parseInt(b.getAttribute('data-goto'), 10)); });
+		});
+
+		// ---- Paso 2: Continuar -> datos random ----
+		function randInt(len) {
+			var s = '';
+			for (var i = 0; i < len; i++) { s += Math.floor(Math.random() * 10); }
+			return s;
+		}
+		function pick(arr) { return arr[Math.floor(Math.random() * arr.length)]; }
+		function cuit() {
+			var pre = pick(['30', '33', '34']);
+			return pre + '-' + randInt(8) + '-' + Math.floor(Math.random() * 10);
+		}
+
+		function generarDatosBancarios() {
+			var titulares = ['Marketing Workshops SRL', 'MW Estudio Creativo SRL', 'Workshops MKT SAS', 'MW Formación SRL'];
+			var bancos = ['Banco Galicia', 'Banco Santander', 'BBVA Argentina', 'Banco Nación', 'Banco Macro', 'Banco Ciudad', 'Brubank'];
+			var tipos = ['Cuenta Corriente', 'Caja de Ahorro'];
+			var alias = ['MKT.WORKSHOPS.ARS', 'WORKSHOPS.MW.PESOS', 'MW.TALLERES.CTA', 'PAGOS.MW.ARS'];
+			var cbu = randInt(22);
+			var rows = [
+				['Titular', pick(titulares)],
+				['Banco', pick(bancos)],
+				['Nro. de cuenta', randInt(9)],
+				['CUIT', cuit()],
+				['Sucursal', randInt(3)],
+				['Tipo de cuenta', pick(tipos)],
+				['CBU', cbu + '  ·  Alias: ' + pick(alias)]
+			];
+			document.getElementById('bank-data').innerHTML = rows.map(function (r) {
+				return '<div>' + r[0] + ': ' + r[1] + '</div>';
+			}).join('');
+		}
+
+		document.getElementById('btn-continuar').addEventListener('click', function () {
+			generarDatosBancarios();
+			showPane(3);
+		});
+
+		// ---- Paso 3: Reservar lugar ----
+		document.getElementById('btn-reservar').addEventListener('click', function () {
+			showPane(4);
+		});
+	})();
+	</script>
+</body>
+</html>

@@ -6200,3 +6200,96 @@ body.mw-modal-open {
 #talleres .single_tca .tca_pdf:focus-visible::after {
   opacity: 1;
 }
+
+/* ==========================================================================
+   MODAL DE INSCRIPCIÓN - Tarjetas de cohortes / fechas de cursada
+   ========================================================================== */
+#inscripcion-modal .mw-modal { max-width: 980px; }
+.mw-modal-heading {
+  text-align: center;
+  margin: 6px 0 26px;
+  padding: 8px 44px 0;
+}
+.mw-modal-heading h3 {
+  color: var(--mw-navy);
+  font-size: 24px;
+  font-weight: 700;
+  margin: 0 0 6px;
+}
+.mw-modal-heading p {
+  color: #777;
+  font-size: 14px;
+  margin: 0;
+}
+.mw-sched-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+  padding: 0 6px 6px;
+}
+.mw-sched-card {
+  background: #fff;
+  border: 1px solid #e7e7ef;
+  border-radius: 14px;
+  padding: 22px 22px 20px;
+  box-shadow: 0 8px 22px rgba(27, 31, 111, 0.06);
+  display: flex;
+  flex-direction: column;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+.mw-sched-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 16px 34px rgba(27, 31, 111, 0.12);
+}
+.mw-sched-kicker {
+  color: #9aa0a6;
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  margin: 0 0 10px;
+}
+.mw-sched-date {
+  color: var(--mw-navy);
+  font-size: 20px;
+  font-weight: 600;
+  margin: 0 0 14px;
+  line-height: 1;
+}
+.mw-sched-date strong {
+  display: inline-block;
+  color: #2d6cdf;
+  font-size: 40px;
+  font-weight: 800;
+  margin-right: 6px;
+}
+.mw-sched-row {
+  color: var(--mw-navy);
+  font-size: 15px;
+  margin: 0 0 8px;
+}
+.mw-sched-row.mw-sched-time {
+  font-weight: 700;
+  color: #2d6cdf;
+  margin-bottom: 20px;
+}
+.mw-sched-btn {
+  margin-top: auto;
+  display: block;
+  text-align: center;
+  background: #1b1f3b;
+  color: #fff;
+  font-size: 15px;
+  font-weight: 600;
+  padding: 13px 16px;
+  border-radius: 10px;
+  text-decoration: none;
+  transition: background 0.2s ease;
+}
+.mw-sched-btn:hover {
+  background: var(--mw-pink);
+  color: #fff;
+}
+@media (max-width: 900px) {
+  .mw-sched-grid { grid-template-columns: 1fr; max-width: 360px; margin: 0 auto; }
+}
