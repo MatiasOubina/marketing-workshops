@@ -5979,6 +5979,9 @@ a:hover { color: var(--mw-pink); }
 body.mw-modal-open {
   overflow: hidden;
 }
+/* Con un modal abierto, ocultar la hamburguesa: no debe quedar por encima
+   de la cruz de cerrar (ambas van arriba a la derecha) */
+body.mw-modal-open #sm_menu_ham { display: none !important; }
 @media (max-width: 767px) {
   .mw-modal .bio-card { padding: 40px 22px 26px; }
 }
