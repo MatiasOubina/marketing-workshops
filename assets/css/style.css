@@ -6293,3 +6293,38 @@ body.mw-modal-open {
 @media (max-width: 900px) {
   .mw-sched-grid { grid-template-columns: 1fr; max-width: 360px; margin: 0 auto; }
 }
+
+/* ==========================================================================
+   AJUSTES MOBILE / TABLET
+   ========================================================================== */
+
+/* 1) Íconos de PDF de los programas: visibles siempre en mobile y tablet
+   (en desktop siguen apareciendo al hover) */
+@media (max-width: 1024px) {
+  #talleres .single_tca .tca_pdf {
+    opacity: 1;
+    transform: none;
+    pointer-events: auto;
+  }
+  /* Las tarjetas "PRÓXIMAMENTE" no tienen programa: se oculta el ícono */
+  #talleres .single_tca.coming-soon .tca_pdf { display: none; }
+}
+
+/* 2) Modal de Asesoramiento en mobile: separar las tarjetas entre sí
+   y despegar la primera del botón de cerrar (X) */
+@media (max-width: 991px) {
+  #asesoramiento-modal .mw-modal { padding-top: 74px; }
+  #asesoramiento-modal .mw-modal-content .row > [class*="col-"] { margin-bottom: 26px; }
+  #asesoramiento-modal .mw-modal-content .row > [class*="col-"]:last-child { margin-bottom: 0; }
+  #asesoramiento-modal .mw-modal-content .single_ins2 { margin-bottom: 0; }
+}
+
+/* 3) Destello al saltar desde el footer a la tarjeta del taller */
+.mw-ti-flash {
+  animation: mwTiFlash 1.6s ease;
+}
+@keyframes mwTiFlash {
+  0%   { box-shadow: 0 0 0 0 rgba(255, 102, 153, 0.0); }
+  15%  { box-shadow: 0 0 0 4px rgba(255, 102, 153, 0.55); }
+  100% { box-shadow: 0 0 0 0 rgba(255, 102, 153, 0.0); }
+}

@@ -335,7 +335,7 @@
 			</div>
 			<div class="row">									
 				<div class="col-lg-4 col-sm-6 col-xs-12 wow fadeInUp" data-wow-duration="1s" data-wow-delay="0.1s" data-wow-offset="0">
-					<div class="single_feature_one">
+					<div class="single_feature_one" id="ti-marketing-integral">
 						<div class="sf_top">
 							<img src="assets/images/all-img/iconos eleccion de talleres-06.png" alt="Ícono 1">
 							<h2><a href="about.html">Learn More <br />Anywhere</a></h2>
@@ -345,7 +345,7 @@
 					</div>					
 				</div><!-- END COL -->								
 				<div class="col-lg-4 col-sm-6 col-xs-12 wow fadeInUp" data-wow-duration="1s" data-wow-delay="0.2s" data-wow-offset="0">
-					<div class="single_feature_one">
+					<div class="single_feature_one" id="ti-anuncios-pagos">
 						<div class="sf_top">
 							<img src="assets/images/all-img/iconos eleccion de talleres-04.png" alt="Ícono 2">
 							<h2><a href="about.html">Expert <br />Instructor</a></h2>
@@ -355,7 +355,7 @@
 					</div>					
 				</div><!-- END COL -->								
 				<div class="col-lg-4 col-sm-6 col-xs-12 wow fadeInUp" data-wow-duration="1s" data-wow-delay="0.3s" data-wow-offset="0">
-					<div class="single_feature_one">
+					<div class="single_feature_one" id="ti-email-marketing">
 						<div class="sf_top">
 							<img src="assets/images/all-img/iconos eleccion de talleres-02.png" alt="Ícono 3">
 							<h2><a href="about.html">Team <br />Management</a></h2>
@@ -365,7 +365,7 @@
 					</div>					
 				</div><!-- END COL -->								
 				<div class="col-lg-4 col-sm-6 col-xs-12 wow fadeInUp" data-wow-duration="1s" data-wow-delay="0.4s" data-wow-offset="0">
-					<div class="single_feature_one">
+					<div class="single_feature_one" id="ti-comunicacion-promocion">
 						<div class="sf_top">
 							<img src="assets/images/all-img/iconos eleccion de talleres-01.png" alt="Ícono 4">
 							<h2><a href="about.html">Course <br />Planing</a></h2>
@@ -375,7 +375,7 @@
 					</div>					
 				</div><!-- END COL -->								
 				<div class="col-lg-4 col-sm-6 col-xs-12 wow fadeInUp" data-wow-duration="1s" data-wow-delay="0.5s" data-wow-offset="0">
-					<div class="single_feature_one">
+					<div class="single_feature_one" id="ti-marca-logo">
 						<div class="sf_top">
 							<img src="assets/images/all-img/iconos eleccion de talleres-05.png" alt="Ícono 5">
 							<h2><a href="about.html">Teacher <br />Monitoring</a></h2>
@@ -385,7 +385,7 @@
 					</div>					
 				</div><!-- END COL -->								
 				<div class="col-lg-4 col-sm-6 col-xs-12 wow fadeInUp" data-wow-duration="1s" data-wow-delay="0.6s" data-wow-offset="0">
-					<div class="single_feature_one">
+					<div class="single_feature_one" id="ti-eventos">
 						<div class="sf_top">
 							<img src="assets/images/all-img/iconos eleccion de talleres-03.png" alt="Ícono 6">
 							<h2><a href="about.html">24/7 Strong <br />Support</a></h2>
@@ -596,12 +596,12 @@
 					<div class="single_footer">
 						<h4>Talleres</h4>
 						<ul>
-							<li><a href="#">Anuncios en redes sociales</a></li>
-							<li><a href="#">Campañas de email marketing</a></li>
-							<li><a href="#">Comunicación &amp; promoción</a></li>
-							<li><a href="#">Marketing integral para emprendedores</a></li>
-							<li><a href="#">Marca, logo y posicionamiento</a></li>
-							<li><a href="#">Eventos presenciales &amp; virtuales</a></li>
+							<li><a href="#ti-anuncios-pagos">Anuncios en redes sociales</a></li>
+							<li><a href="#ti-email-marketing">Campañas de email marketing</a></li>
+							<li><a href="#ti-comunicacion-promocion">Comunicación &amp; promoción</a></li>
+							<li><a href="#ti-marketing-integral">Marketing integral para emprendedores</a></li>
+							<li><a href="#ti-marca-logo">Marca, logo y posicionamiento</a></li>
+							<li><a href="#ti-eventos">Eventos presenciales &amp; virtuales</a></li>
 						</ul>
 					</div>
 				</div><!--- END COL -->
@@ -681,8 +681,13 @@
 		var titleEl = content.querySelector('.bio-card-eyebrow');
 		if (titleEl) { titleEl.id = 'sobre-mi-modal-title'; }
 
+		function closeMobileMenu() {
+			var ham = document.getElementById('sm_menu_ham');
+			if (ham && ham.classList.contains('open')) { ham.click(); }
+		}
 		function openModal(e) {
 			if (e) { e.preventDefault(); }
+			closeMobileMenu();
 			overlay.hidden = false;
 			void overlay.offsetWidth;
 			overlay.classList.add('is-open');
@@ -750,8 +755,13 @@
 		}
 		content.appendChild(clone);
 
+		function closeMobileMenu() {
+			var ham = document.getElementById('sm_menu_ham');
+			if (ham && ham.classList.contains('open')) { ham.click(); }
+		}
 		function openModal(e) {
 			if (e) { e.preventDefault(); }
+			closeMobileMenu();
 			overlay.hidden = false;
 			void overlay.offsetWidth;
 			overlay.classList.add('is-open');
@@ -920,6 +930,28 @@
 				closeModal();
 			}
 		});
+	})();
+	</script>
+
+	<!-- Footer: enlaces de Talleres -> tarjeta correspondiente en "El taller ideal" -->
+	<script>
+	(function () {
+		document.addEventListener('click', function (e) {
+			var link = e.target && e.target.closest ? e.target.closest('.footer a[href^="#ti-"]') : null;
+			if (!link) { return; }
+			var id = link.getAttribute('href').slice(1);
+			var card = document.getElementById(id);
+			if (!card) { return; }
+			e.preventDefault();
+			// Asegurar que la animación WOW no lo deje invisible
+			card.classList.remove('wow');
+			card.style.visibility = 'visible';
+			var y = card.getBoundingClientRect().top + window.pageYOffset - 90;
+			window.scrollTo({ top: y, behavior: 'smooth' });
+			card.classList.remove('mw-ti-flash');
+			void card.offsetWidth;
+			card.classList.add('mw-ti-flash');
+		}, false);
 	})();
 	</script>
 </body>
